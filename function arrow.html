@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Arrow</title>
+</head>
+<body>
+
+<script>
+    
+    // const sayHello = (name) => {
+    //     const say = `Hello ${name}`;
+    //     console.info(say);
+    // }
+
+    // arrow function tanpa block
+
+    // const sayHello = (name) => console.info(`Hello ${name}`);
+
+    const sayHello = name => console.info(`Hello ${name}`);
+
+    sayHello("Eko");
+
+    // arrow function return value
+
+    // const sum = (first, second) => {
+    //     return first + second;
+    // }
+
+    const sum = (first, second) => first + second;
+
+    console.info(sum(100, 100));
+
+    // arrow function sebagai parameter
+    function giveMeName(callback){
+        callback("Eko");
+    }
+
+    // Anonymous Function
+    // giveMeName(function (name) {
+    //     console.info(`Hello ${name}`);
+    // })
+
+    // Arrow Function
+    giveMeName(name => console.info(`Hello ${name}`));
+
+ 
+</script>
+
+</body>
+</html>

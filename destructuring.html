@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Destructuring</title>
+</head>
+<body>
+
+<script>
+    
+    {
+        const names = ["Eko", "Kurniawan", "Khannedy", "Budi", "Joko"];
+        const [firstName, middleName, lastName, ...others] = names;
+
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+        console.info(others);
+    }
+
+    {
+        const person = {
+            firstName: "Eko",
+            lastName: "Khannedy",
+            address: {
+               street: "Jalan Belum Ada",
+               city: "Jakarta",
+               country: "Indonesia"
+            },
+            hobby: "Game",
+            channel: "Programmer Zaman Now"
+        };
+
+        const {firstName, lastName, address, ...others} = person;
+        console.info(firstName);
+        console.info(lastName);
+        console.info(address);
+        console.info(others);
+    }
+
+    {
+        const person = {
+            firstName: "Eko",
+            lastName: "Khannedy",
+            address: {
+               street: "Jalan Belum Ada",
+               city: "Jakarta",
+               country: "Indonesia"
+            },
+            hobby: "Game",
+            channel: "Programmer Zaman Now"
+        };
+
+        const {firstName, lastName, address:{city, street, country}, ...others} = person;
+        console.info(firstName);
+        console.info(lastName);
+        console.info(city);
+        console.info(street);
+        console.info(country);
+        console.info(others);
+    }
+
+    // destructuring di function parameter(1)
+    {
+        const person = {
+            firstName: "Eko",
+            middleName: "Kurniawan",
+            lastName: "Khannedy"
+        };
+        
+        function displayPerson({firstName, middleName, lastName}){
+            console.info(firstName);
+            console.info(middleName);
+            console.info(lastName);
+        }
+
+        displayPerson(person)
+    }
+
+    // destructuring di function parameter(2)
+    {
+        function sum([first, second]){
+            return first + second;
+        }
+
+        console.info(sum([1,1]));
+        console.info(sum([10,10]));
+    }
+
+    // default value
+    {
+        const names = ["Eko", "Kurniawan"];
+        const [firstName, middleName, lastName = "Khannedy"] = names;
+
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+    }
+
+    {
+        const person = {
+            firstName: "Eko",
+            middleName: "Budi",
+            lastName: "Khannedy",
+        };
+
+        const {firstName, middleName = "Kurniawan", lastName} = person;
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+        
+    }
+
+    // beda nama variable
+    {
+        const person = {
+            firstName: "Eko",
+            middleName: "Budi",
+            lastName: "Khannedy",
+        };
+
+        const {
+            firstName: namaDepan, 
+            middleName: namaTengah = "Kurniawan", 
+            lastName: namaBelakang
+        } = person;
+
+        console.info(namaDepan);
+        console.info(namaTengah);
+        console.info(namaBelakang);
+        
+    }
+ 
+</script>
+
+</body>
+</html>
